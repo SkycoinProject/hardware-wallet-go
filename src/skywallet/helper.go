@@ -12,10 +12,10 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 
-	messages "github.com/SkycoinProject/hardware-wallet-protob/go"
+	messages "github.com/skycoin/hardware-wallet-protob/go"
 
-	"github.com/SkycoinProject/hardware-wallet-go/src/skywallet/usb"
-	"github.com/SkycoinProject/hardware-wallet-go/src/skywallet/wire"
+	"github.com/skycoin/hardware-wallet-go/src/skywallet/usb"
+	"github.com/skycoin/hardware-wallet-go/src/skywallet/wire"
 )
 
 // DeviceType type of device: emulator or usb
@@ -66,10 +66,10 @@ func CoinTypeFromString(ct string) (CoinType, error) {
 }
 
 const (
-	// SkycoinVendorID from https://github.com/SkycoinProject/hardware-wallet/blob/50000f674c56c0cc18eec30d55978b73ed279b2e/tiny-firmware/bootloader/usb.c#L57
+	// SkycoinVendorID from https://github.com/skycoin/hardware-wallet/blob/50000f674c56c0cc18eec30d55978b73ed279b2e/tiny-firmware/bootloader/usb.c#L57
 	SkycoinVendorID = 0x313A
 
-	// SkycoinHwProductID from https://github.com/SkycoinProject/hardware-wallet/blob/50000f674c56c0cc18eec30d55978b73ed279b2e/tiny-firmware/bootloader/usb.c#L58
+	// SkycoinHwProductID from https://github.com/skycoin/hardware-wallet/blob/50000f674c56c0cc18eec30d55978b73ed279b2e/tiny-firmware/bootloader/usb.c#L58
 	SkycoinHwProductID = 0x0001
 
 	// EmulatorPort is the emulator udp port

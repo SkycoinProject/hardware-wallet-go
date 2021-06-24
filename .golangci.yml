@@ -136,7 +136,7 @@ linters-settings:
     range-loops: true # Report preallocation suggestions on range loops, true by default
     for-loops: false # Report preallocation suggestions on for loops, false by default
   goimports:
-    local-prefixes: github.com/SkycoinProject/hardware-wallet-go
+    local-prefixes: github.com/skycoin/hardware-wallet-go
 
 
 linters:

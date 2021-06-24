@@ -30,11 +30,11 @@
 
 
 [[constraint]]
-  name = "github.com/SkycoinProject/skycoin"
+  name = "github.com/skycoin/skycoin"
   branch = "develop"
 
 [[constraint]]
-  name = "github.com/SkycoinProject/hardware-wallet-protob"
+  name = "github.com/skycoin/hardware-wallet-protob"
   branch = "develop"
 
 [[constraint]]

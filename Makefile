@@ -22,11 +22,11 @@ dep: ## Ensure package dependencies are up to date
 
 mocks: ## Create all mock files for unit tests
 	echo "Generating mock files"
-	mockery -name Devicer -dir ./src/skywallet -case underscore -inpkg -testonly
-	mockery -name DeviceDriver -dir ./src/skywallet -case underscore -inpkg -testonly
+	mockery --name Devicer --dir ./src/skywallet --case underscore --inpackage
+	mockery --name DeviceDriver --dir ./src/skywallet --case underscore --inpackage
 
 test-unit: ## Run unit tests
-	go test -v github.com/SkycoinProject/hardware-wallet-go/src/skywallet
+	go test -v github.com/skycoin/hardware-wallet-go/src/skywallet
 
 test-integration-emulator: ## Run emulator integration tests
 	./ci-scripts/integration-test.sh -a -m EMULATOR -n emulator-integration
@@ -50,8 +50,8 @@ lint: ## Run linters. Use make install-linters first.
 	golangci-lint run -c .golangci.yml ./...
 
 format: ## Formats the code. Must have goimports installed (use make install-linters).
-	goimports -w -local github.com/SkycoinProject/hardware-wallet-go ./cmd
-	goimports -w -local github.com/SkycoinProject/hardware-wallet-go ./src
+	goimports -w -local github.com/skycoin/hardware-wallet-go ./cmd
+	goimports -w -local github.com/skycoin/hardware-wallet-go ./src
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

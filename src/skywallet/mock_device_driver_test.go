@@ -3,8 +3,8 @@
 package skywallet
 
 import (
-	usb "github.com/SkycoinProject/hardware-wallet-go/src/skywallet/usb"
-	wire "github.com/SkycoinProject/hardware-wallet-go/src/skywallet/wire"
+	usb "github.com/skycoin/hardware-wallet-go/src/skywallet/usb"
+	wire "github.com/skycoin/hardware-wallet-go/src/skywallet/wire"
 	mock "github.com/stretchr/testify/mock"
 )
 

@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SkycoinProject/hardware-wallet-go/src/skywallet"
+	"github.com/skycoin/hardware-wallet-go/src/skywallet"
 
-	messages "github.com/SkycoinProject/hardware-wallet-protob/go"
-	"github.com/SkycoinProject/skycoin/src/util/logging"
+	messages "github.com/skycoin/hardware-wallet-protob/go"
+	"github.com/skycoin/skycoin/src/util/logging"
 	"github.com/gogo/protobuf/proto"
 	"github.com/stretchr/testify/require"
 )

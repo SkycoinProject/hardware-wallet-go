@@ -183,7 +183,7 @@ OPTIONS:
         --addressN value            Number of addresses to generate (default: 1)
         --startIndex value          Start to generate deterministic addresses from startIndex (default: 0)
         --confirmAddress            If requesting one address it will be sent only if user confirms operation by pressing device's button.
-        --coinType                  Coin Type, which will be used on hardware-wallet. Supported values: SKY, BTC (default: SKY)) 
+        --coinType                  Coin Type, which will be used on hardware-wallet. Supported values: SKY, BTC (default: SKY))
 ```
 
 #### Examples
@@ -542,7 +542,7 @@ OPTIONS:
         --coin value                        Amount of coins
         --hour value                        Number of hours
         --addressIndex value                If the address is a return address tell its index in the wallet
-        --coinType                          Coin Type, which will be used on hardware-wallet. Supported values: SKY, BTC (default: SKY)) 
+        --coinType                          Coin Type, which will be used on hardware-wallet. Supported values: SKY, BTC (default: SKY))
 ```
 
 ```bash
@@ -614,3 +614,42 @@ INFO [skycoin-hw-cli]: Getting mixed entropy from device
 </details>
 
 A real example about how to use this feature can be checked at the [TRNG validation](https://github.com/SkycoinProject/hardware-wallet/tree/8edc2a28027875f464b68348c44fb188efb4dfbb#validate-the-trng) (please get noticed that the firmware should be build with this feature enabled trough `ENABLE_GETENTROPY`). The tool is use specifically [from here](https://github.com/SkycoinProject/hardware-wallet/blob/8edc2a28027875f464b68348c44fb188efb4dfbb/trng-test/Makefile#L7-L8).
+
+
+## For developers purpose only
+### deterministicBuild
+
+Test for deterministic builds of address
+
+```
+OPTIONS:
+        --file_name string      Name of file to store results (JSON only!!!!!!)
+        --mnemonic string       Mnemonic for HW
+        --file_action string    Two actions allowed - APPEND or OVERWRITE
+        --coinType value        SKY only
+        --deviceType value      EMULATOR only
+```
+#### Examples
+
+```bash
+$ skycoin-hw-cli deterministicBuild --file_name="test.json" --mnemonic="wire junk original sword bread bottom armor dog snow accident inform rigid" --file_action="OVERWRITE" --coinType=SKY --deviceType=EMULATOR
+```
+
+If you want automate testing deterministic builds, you can write simple Python or bash script
+
+```python
+import os
+
+#set mnemonic and file to store results (should be JSON only)
+mnemonics = ["wire junk original sword bread bottom armor dog snow accident inform rigid",
+              "all all all all all all all all all all all all"]
+
+filename = "test.json"
+
+#set env variable for button auto press
+os.environ["AUTO_PRESS_BUTTONS"] = "1"
+
+for mnemonic in mnemonics:
+    #run command in terminal using Python
+    os.system('skycoin-hw-cli deterministicBuild --file_name="{0}" --mnemonic="{1}" --file_action="{2}" --coinType=SKY --deviceType=EMULATOR'.format(filename, mnemonic, "APPEND"))
+```

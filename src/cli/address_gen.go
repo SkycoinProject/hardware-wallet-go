@@ -5,11 +5,11 @@ import (
 	"os"
 	"runtime"
 
-	messages "github.com/SkycoinProject/hardware-wallet-protob/go"
+	messages "github.com/skycoin/hardware-wallet-protob/go"
 
 	gcli "github.com/urfave/cli"
 
-	skyWallet "github.com/SkycoinProject/hardware-wallet-go/src/skywallet"
+	skyWallet "github.com/skycoin/hardware-wallet-go/src/skywallet"
 )
 
 func addressGenCmd() gcli.Command {

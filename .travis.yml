@@ -14,9 +14,9 @@ before_install:
   - source ./ci-scripts/install-$TRAVIS_OS_NAME.sh
 
 install:
-  - if [[ ! -d $GOPATH/src/github.com/SkycoinProject/hardware-wallet-go ]]; then mkdir -p $GOPATH/src/github.com/skycoin; ln -s $TRAVIS_BUILD_DIR $GOPATH/src/github.com/SkycoinProject/hardware-wallet-go; fi
-  - go get github.com/vektra/mockery/.../
-  - cd $GOPATH/src/github.com/SkycoinProject/hardware-wallet-go
+  - if [[ ! -d $GOPATH/src/github.com/skycoin/hardware-wallet-go ]]; then mkdir -p $GOPATH/src/github.com/skycoin; ln -s $TRAVIS_BUILD_DIR $GOPATH/src/github.com/skycoin/hardware-wallet-go; fi
+  - go get github.com/vektra/mockery/v2/.../
+  - cd $GOPATH/src/github.com/skycoin/hardware-wallet-go
   - make mocks
   - make install-linters
   - make lint
@@ -31,7 +31,7 @@ before_script:
     fi
   # Install hardware wallet for running tests against emulator
   - mkdir -p tmp/hardware-wallet
-  - git clone --depth=1 --single-branch --branch develop https://github.com/SkycoinProject/hardware-wallet.git tmp/hardware-wallet
+  - git clone --depth=1 --single-branch --branch develop https://github.com/skycoin/hardware-wallet.git tmp/hardware-wallet
   - git -C tmp/hardware-wallet submodule update --init
   # Install OS-specific test and build dependencies for hardware-wallet
   - ( cd ./tmp/hardware-wallet && sh "ci-scripts/install-${TRAVIS_OS_NAME}.sh" )
@@ -88,6 +88,5 @@ deploy:
   skip_cleanup: true
   draft: true
   on:
-    repo: SkycoinProject/hardware-wallet-go
+    repo: skycoin/hardware-wallet-go
     tags: true
-
